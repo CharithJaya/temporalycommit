@@ -1,0 +1,136 @@
+import { Member, AttendanceRecord, User, Course } from './types';
+
+export const mockMembers: Member[] = [
+  {
+    id: '1',
+    name: 'Charith Jayashan',
+    email: 'charithjc97@gmail.com',
+    phone: '+94752738098',
+    course: 'Mathematics Grade 12',
+    joinDate: '2024-01-15',
+    status: 'active',
+    address: '213 palandagoda road,panagoda,homagama',
+    emergencyContact: '+94752738098',
+    qrCode: 'MEMBER_1_CHARITH_JAYASHAN',
+  },
+  {
+    id: '2',
+    name: 'Lakshith gamage',
+    email: 'lakshithagamage@email.com',
+    phone: '+94752738098',
+    course: 'Physics Grade 12',
+    joinDate: '2024-01-20',
+    status: 'active',
+    address: '456 THARANGA PLACE, City, State',
+    emergencyContact: '+94752738098',
+    qrCode: 'MEMBER_2_LAKSHITH_GAMAGE',
+  },
+  {
+    id: '3',
+    name: 'CHAMIDU LAKSHAN',
+    email: 'chamidulakshan@email.com',
+    phone: '+94775575367',
+    course: 'Chemistry Grade 12',
+    joinDate: '2024-02-01',
+    status: 'active',
+    address: '789 palandagoda road Rd, City, State',
+    emergencyContact: '+94775575367',
+    qrCode: 'MEMBER_3_CHAMIDU_LAKSHAN',
+  },
+  {
+    id: '4',
+    name: 'SUPUN RATHNAYAKE',
+    email: 'SUPUNRATHNAYAKE@email.com',
+    phone: '+94775575367',
+    course: 'Mathematics Grade 13',
+    joinDate: '2024-01-10',
+    status: 'inactive',
+    address: '321 Elm St, City, State',
+    emergencyContact: '+94775575367',
+    qrCode: 'MEMBER_4_SUPUN_RATHNAYAKE',
+  },
+];
+
+export const mockAttendance: AttendanceRecord[] = [
+  {
+    id: '1',
+    memberId: '1',
+    memberName: 'Charith Jayashan',
+    checkInTime: '09:00',
+    checkOutTime: '11:00',
+    date: '2024-01-15',
+    status: 'present',
+    duration: 120,
+  },
+  {
+    id: '2',
+    memberId: '2',
+    memberName: 'Chamidu Lakshan',
+    checkInTime: '09:15',
+    checkOutTime: '11:15',
+    date: '2024-01-15',
+    status: 'late',
+    duration: 120,
+  },
+  {
+    id: '3',
+    memberId: '3',
+    memberName: 'Lakshith Gamage',
+    checkInTime: '08:55',
+    date: '2024-01-15',
+    status: 'present',
+  },
+];
+
+export const mockUsers: User[] = [
+  {
+    id: '1',
+    name: 'Admin User',
+    email: 'admin@gmail.com',
+    role: 'admin',
+  },
+  {
+    id: '2',
+    name: 'Charith Jayashan',
+    email: 'charithjc97@gmail.com',
+    role: 'student',
+    memberId: '1',
+  },
+  {
+    id: '3',
+    name: 'Chamidu Lakshan',
+    email: 'chamidulakshan@email.com',
+    role: 'student',
+    memberId: '2',
+  },
+];
+
+export const mockCourses: Course[] = [
+  {
+    id: '1',
+    name: 'Mathematics Grade 12',
+    description: 'Advanced algebra, geometry, and trigonometry for grade 12 students',
+    instructor: 'ruwan darshana',
+    schedule: 'Mon, Wed, Fri - 9:00 AM to 11:00 AM',
+    duration: '2 years',
+    fees: 1500,
+  },
+  {
+    id: '2',
+    name: 'Physics Grade 11',
+    description: 'Mechanics, thermodynamics, and wave physics',
+    instructor: 'darshana ukuwela',
+    schedule: 'Tue, Thu, Sat - 10:00 AM to 12:00 PM',
+    duration: '2 years',
+    fees: 1500,
+  },
+  {
+    id: '3',
+    name: 'Chemistry Grade 12',
+    description: 'Organic chemistry, physical chemistry, and analytical chemistry',
+    instructor: 'anushka idunil',
+    schedule: 'Mon, Wed, Fri - 2:00 PM to 4:00 PM',
+    duration: '10 months',
+    fees: 1500,
+  },
+];
