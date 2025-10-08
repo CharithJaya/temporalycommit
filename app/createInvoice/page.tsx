@@ -14,7 +14,7 @@ interface InvoiceItem {
 }
 
 interface Student {
-  id: number;
+  id: string; // changed from number to string
   fullName: string;
 }
 
@@ -47,7 +47,6 @@ export default function CreateInvoicePage() {
         if (!res.ok) throw new Error("Failed to fetch students");
         const data = await res.json();
 
-        // Map backend Member entity to frontend Student shape
         const studentList: Student[] = (Array.isArray(data) ? data : data.content || []).map(
           (m: any) => ({
             id: m.id.toString(), // convert to string for select value
@@ -87,7 +86,7 @@ export default function CreateInvoicePage() {
         if (item.id === id) {
           const updatedItem = { ...item, [field]: value };
           if (field === "quantity" || field === "rate") {
-            updatedItem.amount = Number(updatedItem.quantity) * Number(updatedItem.rate) * 300; // convert to Rs
+            updatedItem.amount = Number(updatedItem.quantity) * Number(updatedItem.rate) * 300;
           }
           return updatedItem;
         }
@@ -132,9 +131,7 @@ export default function CreateInvoicePage() {
         `https://new-backend-ve6s7g.fly.dev/api/invoices/${invoiceData.studentId}`,
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         }
       );
@@ -194,7 +191,7 @@ export default function CreateInvoicePage() {
                     </label>
                     <select
                       value={invoiceData.studentId}
-                      onChange={(e) => {
+                      onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                         const selected = students.find((s) => s.id === e.target.value);
                         setInvoiceData({
                           ...invoiceData,
